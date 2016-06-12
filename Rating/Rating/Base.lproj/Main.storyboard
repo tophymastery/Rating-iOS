@@ -203,7 +203,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Vvm-sJ-RV0">
                             <connections>
-                                <segue destination="BTI-A4-CRR" kind="unwind" unwindAction="savePlayerDetail:" id="6is-U1-82K"/>
+                                <segue destination="BTI-A4-CRR" kind="unwind" identifier="SavePlayerDetail" unwindAction="savePlayerDetail:" id="6is-U1-82K"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
