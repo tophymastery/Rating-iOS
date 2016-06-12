@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Gestures-->
@@ -55,19 +56,63 @@
         <!--Players-->
         <scene sceneID="Z6z-fa-bbG">
             <objects>
-                <tableViewController id="EkT-lN-HiV" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="R1d-1T-gpH">
+                <tableViewController id="EkT-lN-HiV" customClass="PlayersViewController" customModule="Rating" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="R1d-1T-gpH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yBQ-vn-3fs">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="60" id="yBQ-vn-3fs" customClass="PlayerCell" customModule="Rating" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yBQ-vn-3fs" id="UNC-lE-LBB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q89-UX-Yfe">
+                                            <rect key="frame" x="28" y="8" width="286" height="44"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cHs-vs-J5u">
+                                                    <rect key="frame" x="0.0" y="5" width="43" height="34"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cew-tm-IkM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="43" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kY-F8-uhF">
+                                                            <rect key="frame" x="0.0" y="20" width="43" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4dq-27-iGE">
+                                                    <rect key="frame" x="205" y="0.0" width="81" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81" id="c6K-cd-aOW"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4dq-27-iGE" firstAttribute="top" secondItem="q89-UX-Yfe" secondAttribute="top" id="z0n-RL-RQd"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="q89-UX-Yfe" firstAttribute="top" secondItem="UNC-lE-LBB" secondAttribute="topMargin" id="RJ8-M4-wuy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="q89-UX-Yfe" secondAttribute="bottom" id="fpJ-YG-hsG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="q89-UX-Yfe" secondAttribute="trailing" constant="20" id="snN-g8-SAx"/>
+                                        <constraint firstItem="q89-UX-Yfe" firstAttribute="leading" secondItem="UNC-lE-LBB" secondAttribute="leadingMargin" constant="20" id="xQ8-cq-78o"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameLabel" destination="1kY-F8-uhF" id="EsY-RG-4qD"/>
+                                    <outlet property="nameLabel" destination="cew-tm-IkM" id="BTr-u1-qiu"/>
+                                    <outlet property="ratingImageView" destination="4dq-27-iGE" id="uJc-x9-Alv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
